@@ -7,7 +7,6 @@ from os import system
 heroes = deepcopy(lista_personajes)
 
 def menu():
-    system("cls")
     opcion = input('''
             1. Listar ordenado por Nombre.
             2. Listar Masculinos débiles.
@@ -35,35 +34,35 @@ def opcion_dos():
         |-------------------------------------------------|''')
     print_todos(lista_filtrada)
 
-def opcion_tres() -> None:
+def opcion_tres():
     lista_color_ojos = obtener_datos(heroes,"color_ojos")
-    for o in lista_color_ojos:
+    for i in lista_color_ojos:
         cant = 0
-        for h in heroes:
-            cant = cant + 1 if h["color_ojos"] == o else cant
+        for j in heroes:
+            cant = cant + 1 if j["color_ojos"] == i else cant
         print(f'''
         |--------------------------------------------------------------|
         
             Hay {cant} superheroes 
-            con color de ojos {o}   ''')
+            con color de ojos {i}   ''')
     print(f'''
         |--------------------------------------------------------------|''')
 
-def opcion_cuatro() -> None:
+def opcion_cuatro():
     lista_color_pelo = obtener_datos(heroes,"color_pelo")
     for e in lista_color_pelo:
         lista_filtrada = filtrar(heroes, "color_pelo", e)
         print(f"Color de pelo: {e}")
         print_todos(lista_filtrada)
         
-def opcion_cinco() -> None:
+def opcion_cinco():
     tipo_inteligencia = obtener_datos(heroes,"inteligencia")
     for e in tipo_inteligencia:
         lista_filtrada = filtrar(heroes, "inteligencia", e)
         print(f"Inteligencia: {e}")
         print_todos(lista_filtrada)
 
-def opcion_seis() -> None:
+def opcion_seis():
     mujeres = filtrar(heroes, "genero", "F")
     prom = promediar(mujeres, "fuerza")
     for h in heroes:
@@ -74,7 +73,7 @@ def opcion_seis() -> None:
         |    {"Peso:".ljust(14)} {str("%.2f" %float(h["peso"])).ljust(30)}|
         |-------------------------------------------------|''')
 
-def opcion_siete() -> None:
+def opcion_siete():
     for h in heroes:
         imc = calcular_imc(float(h["peso"]),convertir_cm_a_m(float(h["altura"])))
         h["imc"] = imc

@@ -88,14 +88,12 @@ def promediar(lista, atributo, acumulador=0):
     
     return prom
 
-def calcular_imc(peso:float,altura:float) -> float:
-    
-    """ Calcula el IMC segun el peso y altura recibidos """
+def calcular_imc(peso, altura):
     
     imc = peso / (altura ** 2)
     return imc
 
-def convertir_cm_a_m(distancia:float) -> float:
+def convertir_cm_a_m(distancia):
     retorno = distancia * 100
     return retorno
 
